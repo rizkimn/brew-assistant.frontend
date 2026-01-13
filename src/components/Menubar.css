@@ -1,0 +1,36 @@
+nav.menubar {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 100;
+
+  background-color: #f1f1f1;
+  display: flex;
+  padding: 24px;
+  border-radius: 24px;
+}
+
+nav.menubar menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.menubar menu li {
+  list-style: none;
+  opacity: 0.3;
+  transition: .3s;
+}
+
+nav.menubar menu li:hover {
+  opacity: 1;
+}
+
+@media screen and (min-width: 720px) {
+  nav.menubar menu {
+    justify-content: center;
+    gap: 124px;
+  }
+}

@@ -1,0 +1,54 @@
+.ratio-input-group h3 {
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.ratio-input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ratio-input button {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--primary-color-light);
+  color: var(--primary-color);
+  border: 1.6px solid var(--primary-color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .3s;
+}
+
+.ratio-input input {
+  width: 50%;
+  height: 48px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #f1f1f1;
+  border: 1.6px solid #c6c6c6;
+  border-radius: 8px;
+  outline: none;
+}
+
+.ratio-input input[name="coffee-ratio"] {
+  background-color: #c6c6c6;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.ratio-input input::-webkit-outer-spin-button,
+.ratio-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.ratio-input input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

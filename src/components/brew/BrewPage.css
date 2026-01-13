@@ -1,0 +1,105 @@
+main.brew-page {
+  padding: 48px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.input-group h3 {
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+/* Beans Selector */
+.beans-selector-wrapper {
+  grid-column: 1 / span 2;
+  overflow: auto;
+}
+
+.beans-selector {
+  overflow-x: auto;
+}
+
+.beans-selector .beans-cards {
+  display: flex;
+  gap: 6px;
+  padding-bottom: 8px;
+  padding-right: 32px;
+}
+
+.beans-selector input.beans-input {
+  display: none;
+}
+
+.beans-selector label.beans-card-label {
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 24px;
+}
+
+.beans-selector input.beans-input:checked ~ label.beans-card-label {
+  background-color: var(--primary-color-light);
+  border: 1px solid var(--primary-color-border);
+}
+
+/* Target Profile Selector */
+
+.profile-selector-btns {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-selector-btns .selector-btn {
+  display: flex;
+  align-items: center;
+}
+
+.profile-selector-btns .selector-btn input {
+  display: none;
+}
+
+.profile-selector-btns .selector-btn label {
+  font-size: 16px;
+  background-color: #f1f1f1;
+  padding: 12px 24px;
+  border: 1.6px solid #c6c6c6;
+  border-radius: 8px;
+}
+
+.profile-selector-btns .selector-btn input:checked ~ label {
+  background-color: var(--primary-color-light);
+  color: var(--primary-color);
+  border: 1.6px solid var(--primary-color-border);
+}
+
+@media screen and (max-width: 768px) {
+  main.brew-page {
+    padding: 16px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .beans-selector-wrapper {
+    grid-column: auto;
+    position: relative;
+  }
+
+  .beans-selector-wrapper .fade-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 32px;
+    height: 100%;
+
+    pointer-events: none;
+    background-image: linear-gradient(
+      to right,
+      #fff0,
+      #fff4,
+      #fffa,
+      #fff
+    );
+  }
+}

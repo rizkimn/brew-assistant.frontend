@@ -1,0 +1,81 @@
+.beans-card {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 24px;
+  transition: .3s;
+}
+
+.beans-card:hover {
+  background-color: var(--primary-color-light);
+}
+
+.beans-card.active {
+  background-color: var(--primary-color-light);
+  border: 1.6px solid var(--primary-color-border);
+}
+
+.beans-card .beans-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.beans-card .beans-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .3s;
+}
+
+.beans-card .beans-image:hover img {
+  transform: scale(1.2);
+}
+
+.beans-card .beans-name {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.beans-card .beans-roaster {
+  font-weight: 300;
+  font-size: 16px;
+  opacity: 0.3;
+}
+
+.beans-card .beans-process {
+  font-weight: 300;
+  font-style: italic;
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.beans-card .beans-cta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.beans-card .beans-cta a.detail-link {
+  text-decoration: none;
+  color: var(--primary-color);
+  opacity: 0.7;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.beans-card .beans-cta a.detail-link:hover {
+  text-decoration: underline;
+}
+
+.beans-card .beans-cta a.detail-link svg {
+  stroke: var(--primary-color);
+}

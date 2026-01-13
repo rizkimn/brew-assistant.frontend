@@ -1,0 +1,33 @@
+aside nav menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 48px;
+}
+
+aside nav menu li {
+  list-style: none;
+}
+
+aside nav menu li a {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  text-decoration: none;
+  font-weight: 300;
+  opacity: 0.3;
+  color: #000;
+  transition: .3s;
+}
+
+aside nav menu li.active a,
+aside nav menu li a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  aside nav menu {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
