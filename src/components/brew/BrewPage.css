@@ -17,7 +17,7 @@ main.brew-page {
   overflow: auto;
 }
 
-.beans-selector {
+.beans-selector .beans-cards {
   overflow-x: auto;
 }
 

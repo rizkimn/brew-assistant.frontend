@@ -1,4 +1,8 @@
 header {
+  position: sticky;
+  z-index: 66;
+  background-color: white;
+  top: 0;
   padding: 24px;
   display: flex;
   align-items: center;
