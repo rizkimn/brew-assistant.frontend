@@ -1,5 +1,8 @@
 import "./BrewPage.css";
 
+import { For } from "solid-js";
+import { query, createAsync } from "@solidjs/router";
+
 import BeansCard from "./BeansCard";
 import BeansCardImage from "./BeansCardImage";
 import BeansCardInfo from "./BeansCardInfo";
@@ -7,44 +10,50 @@ import DoseInput from "./DoseInput";
 import GrinderClickInput from "./GrinderClickInput";
 import RatioInput from "./RatioInput";
 
+const getBeans = query(async () => {
+  const beans = await fetch("http://localhost:1337/beans");
+  return await beans.json();
+}, "beans");
+
 export default function BrewPage() {
-  const beans = [
-    {
-      id: 1,
-      name: "Aceh Gayo Blue Musara",
-      roaster: "Fugol Coffee Roasters",
-      process: "Honey Wet Hulled",
-      imageSrc: "/assets/img/beans/fugol-aceh-blue-musara.png",
-    },
-    {
-      id: 2,
-      name: "Flores Manggarai",
-      roaster: "Otten Coffee",
-      process: "Natural",
-      imageSrc: "/assets/img/beans/otten-flores-manggarai.png",
-    },
-    {
-      id: 3,
-      name: "Gayo Avatara Carbonic Maceration Honey",
-      roaster: "Fugol Coffee Roasters",
-      process: "Carbonic Maceration Honey",
-      imageSrc: "/assets/img/beans/fugol-gayo-avatara-cm-honey.png",
-    },
-    {
-      id: 4,
-      name: "Wanoja Kamojang",
-      roaster: "Otten Coffee",
-      process: "Natural",
-      imageSrc: "/assets/img/beans/otten-wanoja-kamojang.png",
-    },
-    {
-      id: 5,
-      name: "Kaki Gunung Guntur",
-      roaster: "Fugol Coffee Roasters",
-      process: "Anaerobic Natural",
-      imageSrc: "/assets/img/beans/fugol-kaki-gunung-guntur.png",
-    },
-  ]
+  const beans = createAsync(() => getBeans());
+  // const beans = [
+  //   {
+  //     id: 1,
+  //     name: "Aceh Gayo Blue Musara",
+  //     roaster: "Fugol Coffee Roasters",
+  //     process: "Honey Wet Hulled",
+  //     imageSrc: "/assets/img/beans/fugol-aceh-blue-musara.png",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Flores Manggarai",
+  //     roaster: "Otten Coffee",
+  //     process: "Natural",
+  //     imageSrc: "/assets/img/beans/otten-flores-manggarai.png",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Gayo Avatara Carbonic Maceration Honey",
+  //     roaster: "Fugol Coffee Roasters",
+  //     process: "Carbonic Maceration Honey",
+  //     imageSrc: "/assets/img/beans/fugol-gayo-avatara-cm-honey.png",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Wanoja Kamojang",
+  //     roaster: "Otten Coffee",
+  //     process: "Natural",
+  //     imageSrc: "/assets/img/beans/otten-wanoja-kamojang.png",
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Kaki Gunung Guntur",
+  //     roaster: "Fugol Coffee Roasters",
+  //     process: "Anaerobic Natural",
+  //     imageSrc: "/assets/img/beans/fugol-kaki-gunung-guntur.png",
+  //   },
+  // ]
 
   return (
     <main class="brew-page">
@@ -52,13 +61,13 @@ export default function BrewPage() {
         <div class="beans-selector input-group">
           <h3>Choose Your Beans</h3>
           <div class="beans-cards">
-            {
-              beans.map(bean => (
+            <For each={beans()}>
+              {(bean) => (
                 <div class="beans-input-wrapper">
                   <input type="radio" name="beans" id={`beans-${bean.id}`} value={bean.id} class="beans-input" />
                   <label for={`beans-${bean.id}`} class="beans-card-label">
                     <BeansCard id={bean.id}>
-                      <BeansCardImage src={bean.imageSrc} alt={bean.name} />
+                      <BeansCardImage src={`/assets/img/beans/${bean.imageSrc}`} alt={bean.name} />
                       <BeansCardInfo
                         name={bean.name}
                         roaster={bean.roaster}
@@ -67,8 +76,8 @@ export default function BrewPage() {
                     </BeansCard>
                   </label>
                 </div>
-              ))
-            }
+              )}
+            </For>
           </div>
         </div>
         <div class="fade-right"></div>
